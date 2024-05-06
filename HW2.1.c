@@ -64,5 +64,25 @@ puts("EE                0000000000000000                        EE");
 puts("EE                                                        EE");
 puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-return 0;
-}
+printf("請輸入四位password:");
+    scanf("%d", &pass);
+    while (1) {
+        switch (a) {
+            case 0:
+                if (pass == 2024) {
+                    printf("密碼正確\n");
+                    system("CLS");
+                    a = 1;
+                    break;
+                } else if (pass != 2024 && b < 3) {
+                    b = b + 1;
+                    printf("重新輸入\n");
+                    scanf("%d", &pass);
+                    break;
+                } else if (b == 3) {
+                    return 0;
+                }
+    
+
+
+}}}
