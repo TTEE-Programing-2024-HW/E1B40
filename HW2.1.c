@@ -153,6 +153,8 @@ printf("請輸入四位password:");
                     default:
                         printf("錯誤: 請重新輸入\n");
                         break;
+                        
+                        
                     }
                 }
         }
