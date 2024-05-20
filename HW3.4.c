@@ -376,7 +376,40 @@ char cfunction(char main[10][10])
         }
         printf("\n");
     }
-    
+     printf("請選擇座位(ex.1-2,2-9):");
+
+    i = 0;
+    while (1) // 連續輸入選坐位功能
+    {
+
+        scanf("%d%c%d%c", &num[i], &ch, &num1[i], &ch2);
+        num[i] = 10 - num[i];
+        if ((num[i] > 9 || num[i] <= 0) || (num1[i] > 9 || num1[i] <= 0) || ch != '-' || main[num[i]][num1[i]] == '*')
+        {
+            printf("請輸入正確的格式或已有座位!(ex.1-2,2-9):");
+            fflush(stdin);
+            continue;
+        }
+
+        i++;
+        if (ch2 != ',')
+            break;
+    }
+
+    for (j = 0; j < i; j++)
+    {
+        main[num[j]][num1[j]] = '@';
+    }
+    system("cls");
+    for (i = 0; i < 10; i++)
+    {
+        for (j = 0; j < 10; j++)
+        {
+            printf("%c", main[i][j]);
+        }
+        printf("\n");
+    }
+      
     
     
     
