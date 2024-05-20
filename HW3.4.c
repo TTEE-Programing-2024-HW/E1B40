@@ -221,7 +221,41 @@ char bfunction(char main[10][10]) // 選坐位1~4
         printf("\n請輸入正確格式!(1~4)");
     }
     
-    
+     switch (ch)
+    {
+    case '1':
+        for (;;)
+        {
+            srand(time(NULL));
+            x = rand() % 9 + 1;
+            y = rand() % 9 + 1;
+            if (main[x][y] == '-')
+            {
+                main[x][y] = '@';
+                break;
+            }
+        }
+        break;
+    case '2':
+        for (;;)
+        {
+            srand(time(NULL));
+            x = rand() % 9 + 1;
+            y = rand() % 9 + 1;
+            if ((main[x][y] == '-') && (main[x][y + 1] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y + 1] = '@';
+                break;
+            }
+            else if ((main[x][y] == '-') && (main[x][y - 1] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y - 1] = '@';
+                break;
+            }
+        }
+        break;
     
     
     
