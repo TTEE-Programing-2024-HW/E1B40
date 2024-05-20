@@ -187,6 +187,41 @@ int main()
          }
     }
     
+    void afunction(char main[10][10]) // 顯示座位表
+{
+    system("cls");
+    int i, j;
+    char ch;
+    for (i = 0; i < 10; i++)
+    {
+        for (j = 0; j < 10; j++)
+        {
+            printf("%c", main[i][j]);
+        }
+        printf("\n");
+    }
+    ch = getch();
+}
+char bfunction(char main[10][10]) // 選坐位1~4 
+{
+    int x, y, i, j;
+    char ch;
+    system("cls");
+    printf("座位(1~4):");
+    for (;;)
+    {
+        ch = getche();
+        if ('1' <= ch && ch <= '4')
+        {
+            system("cls");
+            printf("%c 座位:\n", ch);
+            break;
+        }
+
+        printf("\n請輸入正確格式!(1~4)");
+    }
+    
+    
     
     
     
