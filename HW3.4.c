@@ -256,6 +256,90 @@ char bfunction(char main[10][10]) // 選坐位1~4
             }
         }
         break;
+        
+         case '3':
+        for (;;)
+        {
+            srand(time(NULL));
+            x = rand() % 9 + 1;
+            y = rand() % 9 + 1;
+            if ((main[x][y] == '-') && (main[x][y + 1] == '-') && (main[x][y + 2] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y + 1] = '@';
+                main[x][y + 2] = '@';
+                break;
+            }
+            else if ((main[x][y] == '-') && (main[x][y - 1] == '-') && (main[x][y - 2] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y - 1] = '@';
+                main[x][y - 2] = '@';
+                break;
+            }
+        }
+        break;
+    case '4':
+        for (;;)
+        {
+            srand(time(NULL));
+            x = rand() % 9 + 1;
+            y = rand() % 9 + 1;
+            if ((main[x][y] == '-') && (main[x][y + 1] == '-') && (main[x][y + 2] == '-') && (main[x][y + 3] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y + 1] = '@';
+                main[x][y + 2] = '@';
+                main[x][y + 3] = '@';
+                break;
+            }
+            else if ((main[x][y] == '-') && (main[x][y - 1] == '-') && (main[x][y - 2] == '-') && (main[x][y - 3] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y - 1] = '@';
+                main[x][y - 2] = '@';
+                main[x][y - 3] = '@';
+                break;
+            }
+            else if ((main[x][y] == '-') && (main[x][y + 1] == '-') && (main[x + 1][y] == '-') && (main[x + 1][y + 1] == '-'))
+            {
+                main[x][y] = '@';
+                main[x][y + 1] = '@';
+                main[x + 1][y] = '@';
+                main[x + 1][y + 1] = '@';
+                break;
+            }
+        }
+        break;
+    default:
+    	break;
+    }
+    for (i = 0; i < 10; i++)
+    {
+        for (j = 0; j < 10; j++)
+        {
+            printf("%c", main[i][j]);
+        }
+        printf("\n");
+    }
+    printf("同意嗎?(y/n)");
+    ch = getch();
+    for (;;)
+    {
+        if (ch == 'n' || ch == 'N') // 將@改成-
+        {
+            for (i = 0; i < 10; i++)
+            {
+                for (j = 0; j < 10; j++)
+                {
+                    if (main[i][j] == '@')
+                    {
+                        main[i][j] = '-';
+                    }
+                }
+            }
+            system("cls");
+            break;
     
     
     
