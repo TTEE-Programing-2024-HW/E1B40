@@ -340,13 +340,42 @@ char bfunction(char main[10][10]) // 選坐位1~4
             }
             system("cls");
             break;
-    
-    
-    
-    
-    
-    
-    
+              }
+        else if (ch == 'y' || ch == 'Y') // 將@改成*
+        {
+            for (i = 0; i < 10; i++)
+            {
+                for (j = 0; j < 10; j++)
+                {
+                    if (main[i][j] == '@')
+                    {
+                        main[i][j] = '*';
+                    }
+                }
+            }
+            break;
+        }
+        else
+        {
+            printf("\請輸入正確格式2!(y/n)");
+            ch = getch();
+        }
+    }
+}
+char cfunction(char main[10][10])
+{
+    system("cls");
+    int i, j;
+    char ch, ch2;
+    int num[MAX] = {0}, num1[MAX] = {0};
+    for (i = 0; i < 10; i++)
+    {
+        for (j = 0; j < 10; j++)
+        {
+            printf("%c", main[i][j]);
+        }
+        printf("\n");
+    }
     
     
     
