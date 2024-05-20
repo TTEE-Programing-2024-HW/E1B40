@@ -75,7 +75,10 @@ int main()
     puts("EE                                                        EE");
     puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
     puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-    
+     
+     
+     
+	 
     ch = getch();
     char seat[10][10] = // 座位表設計
         {
@@ -148,7 +151,7 @@ int main()
                 case 'd':
                 case 'D':
                     printf("Continue? (y/n)");
-                     for (;;)
+                    for (;;)
                     {
                         ch = getche();
                         if (ch == 89 || ch == 121)
@@ -166,28 +169,27 @@ int main()
                 default:
                     printf("enter correct format!");
                     ch = getch();
-                    break;     
-               }
+                    break;
+                }
             }
         }
         else
-         {
-             system("cls");
-             count++;
-             if (count == 3)
-             {
+        {
+            system("cls");
+            count++;
+            if (count == 3)
+            {
                 printf("錯誤密碼--%d 連續錯誤三次 程式結束", count);
                 system("pause");
                 return 0;
-             }
-             printf("錯誤密碼--%d 再次輸入:", count);
-             fflush(stdin);
-             scanf("%d", &password);
-              }
-         }
+            }
+            printf("錯誤密碼--%d 再次輸入:", count);
+            fflush(stdin);
+            scanf("%d", &password);
+        }
     }
-    
-    void afunction(char main[10][10]) // 顯示座位表
+}
+void afunction(char main[10][10]) // 顯示座位表
 {
     system("cls");
     int i, j;
@@ -220,8 +222,8 @@ char bfunction(char main[10][10]) // 選坐位1~4
 
         printf("\n請輸入正確格式!(1~4)");
     }
-    
-     switch (ch)
+
+    switch (ch)
     {
     case '1':
         for (;;)
@@ -256,8 +258,7 @@ char bfunction(char main[10][10]) // 選坐位1~4
             }
         }
         break;
-        
-         case '3':
+    case '3':
         for (;;)
         {
             srand(time(NULL));
@@ -312,7 +313,7 @@ char bfunction(char main[10][10]) // 選坐位1~4
         }
         break;
     default:
-    	break;
+        break;
     }
     for (i = 0; i < 10; i++)
     {
@@ -340,7 +341,7 @@ char bfunction(char main[10][10]) // 選坐位1~4
             }
             system("cls");
             break;
-              }
+        }
         else if (ch == 'y' || ch == 'Y') // 將@改成*
         {
             for (i = 0; i < 10; i++)
@@ -357,7 +358,7 @@ char bfunction(char main[10][10]) // 選坐位1~4
         }
         else
         {
-            printf("\請輸入正確格式2!(y/n)");
+            printf("\請輸入正確格式!(y/n)");
             ch = getch();
         }
     }
@@ -376,7 +377,7 @@ char cfunction(char main[10][10])
         }
         printf("\n");
     }
-     printf("請選擇座位(ex.1-2,2-9):");
+    printf("請選擇座位(ex.1-2,2-9):");
 
     i = 0;
     while (1) // 連續輸入選坐位功能
@@ -409,6 +410,46 @@ char cfunction(char main[10][10])
         }
         printf("\n");
     }
+    printf("請問是否同意?(y/n)");
+    ch = getch();
+    for (;;)
+    {
+        if (ch == 'n' || ch == 'N')
+        {
+            for (i = 0; i < 10; i++)
+            {
+                for (j = 0; j < 10; j++)
+                {
+                    if (main[i][j] == '@')
+                    {
+                        main[i][j] = '-';
+                    }
+                }
+            }
+            system("cls");
+            break;
+        }
+        else if (ch == 'y' || ch == 'Y')
+        {
+            for (i = 0; i < 10; i++)
+            {
+                for (j = 0; j < 10; j++)
+                {
+                    if (main[i][j] == '@')
+                    {
+                        main[i][j] = '*';
+                    }
+                }
+            }
+            break;
+        }
+        else
+        {
+            printf("輸入正確格式!(y/n)");
+            ch = getch();
+        }
+    }
+}
       
     
     
