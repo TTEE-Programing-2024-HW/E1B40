@@ -123,3 +123,35 @@ void displayWelcomeScreen() {
     puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
     puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
     
+    
+    
+    printf("==========================================\n");
+    printf("||                                      ||\n");
+    printf("||     WELCOME TO SIMPLE GRADE SYSTEM   ||\n");
+    printf("||                                      ||\n");
+    printf("||   Please enter your password to      ||\n");
+    printf("||   access the system.                 ||\n");
+    printf("||                                      ||\n");
+    printf("||   Default password is: 2024          ||\n");
+    printf("||                                      ||\n");
+    printf("==========================================\n");
+}
+
+int verifyPassword() {
+    int attempts = 0, input;
+
+    while (attempts < 3) {
+        printf("Enter 4-digit password: ");
+        scanf("%d", &input);
+
+        if (input == PASSWORD) {
+            printf("Password correct. Welcome!\n");
+            return 1;
+        } else {
+            printf("Incorrect password. Try again.\n");
+            attempts++;
+        }
+    }
+
+    return 0;
+}
