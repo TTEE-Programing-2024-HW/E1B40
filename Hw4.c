@@ -155,3 +155,45 @@ int verifyPassword() {
 
     return 0;
 }
+
+void displayMainMenu() {
+    printf("|-----------[Grade System]----------|\n");
+    printf("|  a. Enter student grades          |\n");
+    printf("|  b. Display student grades        |\n");
+    printf("|  c. Search for student grades     |\n");
+    printf("|  d. Grade ranking                 |\n");
+    printf("|  e. Exit system                   |\n");
+    printf("|-----------------------------------|\n");
+    printf("Please choose an option: ");
+}
+
+void enterStudentGrades(Student students[], int* studentCount) {
+    if (*studentCount >= MAX_STUDENTS) {
+          printf("Cannot enter more students. Maximum number of students reached.\n");
+          return;
+    }
+    int n;
+    printf("Enter the number of students (5-10): ");
+    scanf("%d", &n);
+
+    while (n < 5 || n > 10 || n + *studentCount > MAX_STUDENTS) {
+        printf("Invalid number of students. Please enter a number between 5 and 10: ");
+        scanf("%d", &n);
+    }
+       for (int i = 0; i < n; ++i) {
+        printf("Enter name for student %d: ", i + 1);
+        scanf("%s", students[*studentCount].name);
+        printf("Enter 6-digit student ID for %s: ", students[*studentCount].name);
+        scanf("%d", &students[*studentCount].id);
+
+        while (students[*studentCount].id < 100000 || students[*studentCount].id > 999999) {
+            printf("Invalid ID. Please enter a 6-digit student ID: ");
+            scanf("%d", &students[*studentCount].id);
+        }
+
+
+
+
+
+
+
