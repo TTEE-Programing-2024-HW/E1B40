@@ -190,6 +190,35 @@ void enterStudentGrades(Student students[], int* studentCount) {
             printf("Invalid ID. Please enter a 6-digit student ID: ");
             scanf("%d", &students[*studentCount].id);
         }
+        
+        printf("Enter math grade for %s: ", students[*studentCount].name);
+        scanf("%d", &students[*studentCount].math);
+        while (students[*studentCount].math < 0 || students[*studentCount].math > 100) {
+            printf("Invalid grade. Please enter a number between 0 and 100: ");
+            scanf("%d", &students[*studentCount].math);
+        }
+
+        printf("Enter physics grade for %s: ", students[*studentCount].name);
+        scanf("%d", &students[*studentCount].physics);
+        while (students[*studentCount].physics < 0 || students[*studentCount].physics > 100) {
+            printf("Invalid grade. Please enter a number between 0 and 100: ");
+            scanf("%d", &students[*studentCount].physics);
+        }
+
+        printf("Enter english grade for %s: ", students[*studentCount].name);
+        scanf("%d", &students[*studentCount].english);
+        while (students[*studentCount].english < 0 || students[*studentCount].english > 100) {
+            printf("Invalid grade. Please enter a number between 0 and 100: ");
+            scanf("%d", &students[*studentCount].english);
+        }
+
+        students[*studentCount].average = (students[*studentCount].math +
+                                           students[*studentCount].physics +
+                                           students[*studentCount].english) / 3.0f;
+        (*studentCount)++;
+    }
+}
+
 
 
 
