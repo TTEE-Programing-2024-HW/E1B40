@@ -124,7 +124,7 @@ void displayWelcomeScreen() {
     puts("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
     
     
-    
+
     printf("==========================================\n");
     printf("||                                      ||\n");
     printf("||     WELCOME TO SIMPLE GRADE SYSTEM   ||\n");
@@ -169,10 +169,11 @@ void displayMainMenu() {
 
 void enterStudentGrades(Student students[], int* studentCount) {
     if (*studentCount >= MAX_STUDENTS) {
-          printf("Cannot enter more students. Maximum number of students reached.\n");
-          return;
+        printf("Cannot enter more students. Maximum number of students reached.\n");
+        return;
     }
-    int n;
+
+    int n,i;
     printf("Enter the number of students (5-10): ");
     scanf("%d", &n);
 
@@ -180,7 +181,8 @@ void enterStudentGrades(Student students[], int* studentCount) {
         printf("Invalid number of students. Please enter a number between 5 and 10: ");
         scanf("%d", &n);
     }
-       for (int i = 0; i < n; ++i) {
+
+      for (i = 0; i < n; ++i) {
         printf("Enter name for student %d: ", i + 1);
         scanf("%s", students[*studentCount].name);
         printf("Enter 6-digit student ID for %s: ", students[*studentCount].name);
@@ -190,7 +192,7 @@ void enterStudentGrades(Student students[], int* studentCount) {
             printf("Invalid ID. Please enter a 6-digit student ID: ");
             scanf("%d", &students[*studentCount].id);
         }
-        
+
         printf("Enter math grade for %s: ", students[*studentCount].name);
         scanf("%d", &students[*studentCount].math);
         while (students[*studentCount].math < 0 || students[*studentCount].math > 100) {
@@ -219,11 +221,13 @@ void enterStudentGrades(Student students[], int* studentCount) {
     }
 }
 
-  void displayStudentGrades(const Student students[], int studentCount) {
+void displayStudentGrades(const Student students[], int studentCount) {
+	int i;
     printf("------------------------------------------\n");
     printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
     printf("------------------------------------------\n");
-    for (int i = 0; i < studentCount; ++i) {
+    
+    for (i = 0; i < studentCount; ++i) {
         printf("%s\t%d\t%d\t%d\t%d\t%.1f\n", students[i].name, students[i].id,
                students[i].math, students[i].physics, students[i].english, students[i].average);
     }
@@ -232,12 +236,13 @@ void enterStudentGrades(Student students[], int* studentCount) {
     getchar(); // Wait for user input
 }
 
-  void searchStudentGrades(const Student students[], int studentCount) {
+void searchStudentGrades(const Student students[], int studentCount) {
+	int i;
     char searchName[50];
     printf("Enter the name of the student to search: ");
     scanf("%s", searchName);
 
-    for (int i = 0; i < studentCount; ++i) {
+    for (i = 0; i < studentCount; ++i) {
         if (strcmp(students[i].name, searchName) == 0) {
             printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
             printf("%s\t%d\t%d\t%d\t%d\t%.1f\n", students[i].name, students[i].id,
@@ -253,11 +258,13 @@ void enterStudentGrades(Student students[], int* studentCount) {
     getchar(); // Wait for user input
 }
 
-  void gradeRanking(Student students[], int studentCount) {
+void gradeRanking(Student students[], int studentCount) {
     Student temp;
+    int i,j;
 
-    for (int i = 0; i < studentCount - 1; ++i) {
-        for (int j = 0; j < studentCount - 1 - i; ++j) {
+    for (i = 0; i < studentCount - 1; ++i) {
+    	
+        for (j = 0; j < studentCount - 1 - i; ++j) {
             if (students[j].average < students[j + 1].average) {
                 temp = students[j];
                 students[j] = students[j + 1];
@@ -268,7 +275,7 @@ void enterStudentGrades(Student students[], int* studentCount) {
 
     printf("Ranking by average grade:\n");
     printf("Name\tID\tAverage\n");
-    for (int i = 0; i < studentCount; ++i) {
+    for (i = 0; i < studentCount; ++i) {
         printf("%s\t%d\t%.1f\n", students[i].name, students[i].id, students[i].average);
     }
     printf("Press any key to return to the main menu...\n");
@@ -276,9 +283,19 @@ void enterStudentGrades(Student students[], int* studentCount) {
     getchar(); // Wait for user input
 }
 
-
-
-
-
+int exitSystem() {
+    char confirm;
+    printf("Are you sure you want to exit? (y/n): ");
+    while (1) {
+        scanf(" %c", &confirm);
+        if (confirm == 'y' || confirm == 'Y') {
+            return 1;
+        } else if (confirm == 'n' || confirm == 'N') {
+            return 0;
+        } else {
+            printf("Invalid input. Are you sure you want to exit? (y/n): ");
+        }
+    }
+}
 
 
