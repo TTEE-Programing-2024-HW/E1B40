@@ -219,6 +219,62 @@ void enterStudentGrades(Student students[], int* studentCount) {
     }
 }
 
+  void displayStudentGrades(const Student students[], int studentCount) {
+    printf("------------------------------------------\n");
+    printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
+    printf("------------------------------------------\n");
+    for (int i = 0; i < studentCount; ++i) {
+        printf("%s\t%d\t%d\t%d\t%d\t%.1f\n", students[i].name, students[i].id,
+               students[i].math, students[i].physics, students[i].english, students[i].average);
+    }
+    printf("Press any key to return to the main menu...\n");
+    getchar(); // Clear the buffer
+    getchar(); // Wait for user input
+}
+
+  void searchStudentGrades(const Student students[], int studentCount) {
+    char searchName[50];
+    printf("Enter the name of the student to search: ");
+    scanf("%s", searchName);
+
+    for (int i = 0; i < studentCount; ++i) {
+        if (strcmp(students[i].name, searchName) == 0) {
+            printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
+            printf("%s\t%d\t%d\t%d\t%d\t%.1f\n", students[i].name, students[i].id,
+                   students[i].math, students[i].physics, students[i].english, students[i].average);
+            printf("Press any key to return to the main menu...\n");
+            getchar(); // Clear the buffer
+            getchar(); // Wait for user input
+            return;
+        }
+    }
+    printf("Student not found. Press any key to return to the main menu...\n");
+    getchar(); // Clear the buffer
+    getchar(); // Wait for user input
+}
+
+  void gradeRanking(Student students[], int studentCount) {
+    Student temp;
+
+    for (int i = 0; i < studentCount - 1; ++i) {
+        for (int j = 0; j < studentCount - 1 - i; ++j) {
+            if (students[j].average < students[j + 1].average) {
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Ranking by average grade:\n");
+    printf("Name\tID\tAverage\n");
+    for (int i = 0; i < studentCount; ++i) {
+        printf("%s\t%d\t%.1f\n", students[i].name, students[i].id, students[i].average);
+    }
+    printf("Press any key to return to the main menu...\n");
+    getchar(); // Clear the buffer
+    getchar(); // Wait for user input
+}
 
 
 
